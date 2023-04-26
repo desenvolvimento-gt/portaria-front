@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import Select from 'react-select';
+import { DynamicFieldsBuilder } from './DynamicFieldsBuilder';
 
 interface IFieldList {
   [index: string]: object[];
@@ -76,26 +77,7 @@ export function CreateCardForm() {
           options={selectOptions}
         />
       </label>
-      {Object.values(fieldList[actualFields]).map(
-        (data: any, index: number) => {
-          return (
-            <div key={index} className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                {data.labelName}
-                <input
-                  className={
-                    data.fieldType === 'checkbox'
-                      ? 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded '
-                      : 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
-                  }
-                  name={data.fieldName}
-                  type={data.fieldType}
-                />
-              </label>
-            </div>
-          );
-        }
-      )}
+      <DynamicFieldsBuilder actualFields={actualFields} fieldList={fieldList} />
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded mr-2"
         type="button"

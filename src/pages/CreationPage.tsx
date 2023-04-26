@@ -1,6 +1,12 @@
-import { Sidebar, Navbar, MainContent, CreateCardForm } from 'components';
+import {
+  Sidebar,
+  Navbar,
+  MainContent,
+  CreateCardForm,
+  CreateEventoForm,
+} from 'components';
 
-export function CreateCardPage() {
+export function CreationPage() {
   return (
     <>
       <Navbar />
@@ -8,6 +14,7 @@ export function CreateCardPage() {
         <Sidebar />
         <MainContent>
           <CreateCardForm />
+          <CreateEventoForm />
         </MainContent>
       </div>
     </>

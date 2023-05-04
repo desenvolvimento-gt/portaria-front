@@ -1,25 +1,44 @@
+import { Toggle } from 'components/Toggle';
 import { ICard } from 'interfaces';
-import { FaPlus } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { FaChevronDown, FaMinus } from 'react-icons/fa';
 
 export function Card({ title, bodyText }: ICard) {
+  function handlePresented() {
+    console.log('Marcado como Apresentado');
+  }
+  const [showDetails, setShowDetails] = useState(true);
+  function handleOnClick() {
+    setShowDetails(!showDetails);
+  }
   return (
     <div className="max-w-[470px] w-[97%] rounded shadow-lg bg-white ">
-      <div className="flex ">
-        <div className="bg-blue-900 text-white w-fit rounded-md px-1 m-1">
-          1234
+      <div className="px-2" onClick={handleOnClick}>
+        <div className="flex gap-1 mt-1 w-full">
+          <div className="bg-blue-900 text-white w-fit rounded-md px-2">
+            1234
+          </div>
+          <div className="bg-blue-900 text-white w-fit rounded-md px-2">T</div>
+          {showDetails ? (
+            <div className="ml-auto  mr-1  ">
+              <FaMinus />
+            </div>
+          ) : (
+            <div className="ml-auto  mr-1 ">
+              <FaChevronDown />
+            </div>
+          )}
         </div>
-        <div className="bg-blue-900 text-white w-fit rounded-md px-1 m-1">
-          T
-        </div>
+        <div className="flex font-bold text-xl ">{title}</div>
       </div>
-      <div className="px-6 ">
-        <div className="font-bold text-xl">{title}</div>
-        <p className="text-gray-700 text-base">01/10/2022 as 11:11 Por ISAAC</p>
-        <p className="text-gray-700 text-base">{bodyText}</p>
+      <div className="px-2 pb-2">
+        {showDetails && (
+          <>
+            <p className="text-gray-700 text-base mb-1">{bodyText}</p>
+            <Toggle title="Marcar como Apresentado" onclick={handlePresented} />
+          </>
+        )}
       </div>
-      <button className="btn btn-primary" type="submit">
-        <FaPlus className="bg-blue-900 text-white rounded-md text-lg ml-5 p-0.5 w-6 h-6" />
-      </button>
     </div>
   );
 }

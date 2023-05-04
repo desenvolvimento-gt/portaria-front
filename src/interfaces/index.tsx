@@ -1,4 +1,3 @@
-export * from './ContentColumns';
 export * from './IPill';
 export * from './ISidebarItem';
 export * from './INavbarItem';

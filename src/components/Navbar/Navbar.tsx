@@ -9,7 +9,7 @@ export function Navbar() {
   return isTabletOrMobile ? (
     <nav className="flex top-0 left-1/5 w-full h-14 bg-slate-300">
       <span className="pl-5 w-1/6 self-center text-center text-xl font-semibold whitespace-nowrap dark:text-white">
-        Place Holder
+        IEAD-Portaria
       </span>
 
       <div className="flex self-center justify-end pr-10 w-full text-center">
@@ -24,9 +24,16 @@ export function Navbar() {
       {isVisible && (
         <div className="z-50 w-full h-auto absolute top-14 left-0 bg-slate-300">
           <div className="flex flex-col items-stretch justify-center">
-            <h1 className="font-bold text-xl text-center">Teste</h1>
-            <h1 className="font-bold text-xl text-center">Teste</h1>
-            <h1 className="font-bold text-xl text-center">Teste</h1>
+            <Link to="/">
+              <h1 className="font-bold text-xl text-center">
+                Quadro de Avisos
+              </h1>
+            </Link>
+            <Link to="/adm">
+              <h1 className="font-bold text-xl text-center">
+                Área Administrativa
+              </h1>
+            </Link>
           </div>
         </div>
       )}
@@ -34,17 +41,14 @@ export function Navbar() {
   ) : (
     <nav className="flex top-0 left-1/5 w-full h-14 bg-slate-300">
       <span className="w-1/6 ml-14 self-center text-center text-xl font-semibold whitespace-nowrap dark:text-white">
-        Place Holder
+        IEAD-Portaria
       </span>
-      <NavbarItem>Teste</NavbarItem>
-      <NavbarItem>Teste</NavbarItem>
-      <NavbarItem>Teste</NavbarItem>
       <div className="flex self-center justify-end pr-10 w-full text-center">
         <Link to="/">
-          <NavbarItem>Dashboard</NavbarItem>
+          <NavbarItem>Quadro de Avisos</NavbarItem>
         </Link>
-        <Link to="/createCard">
-          <NavbarItem>Adicionar Item</NavbarItem>
+        <Link to="/adm">
+          <NavbarItem>Área Administrativa</NavbarItem>
         </Link>
       </div>
     </nav>

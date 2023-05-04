@@ -1,5 +1,5 @@
 import { DashboardPage, CreationPage } from 'pages';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { AppContexts } from 'contexts';
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/createCard" element={<CreationPage />} />
+          <Route path="/adm" element={<CreationPage />} />
         </Routes>
       </BrowserRouter>
     </AppContexts>

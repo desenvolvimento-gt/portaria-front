@@ -1,4 +1,4 @@
-import { DashboardPage, CreationPage } from 'pages';
+import { DashboardPage, AdminPage } from 'pages';
 import React, { useEffect } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { AppContexts } from 'contexts';
@@ -8,7 +8,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/adm" element={<CreationPage />} />
+          <Route path="/adm" element={<AdminPage />} />
+          <Route path="/adm" element={<AdminPage />} />
         </Routes>
       </BrowserRouter>
     </AppContexts>

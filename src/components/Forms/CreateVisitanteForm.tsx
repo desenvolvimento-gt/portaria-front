@@ -1,12 +1,16 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import Select from 'react-select';
 import { DynamicFieldsBuilder } from './DynamicFieldsBuilder';
 
 interface IFieldList {
   [index: string]: object[];
 }
+interface ICompanion {
+  name: string;
+  obs: string;
+}
 export function CreateCardForm() {
-  const [companionNumber, setCompanionNumber] = useState<number>(0);
+  const [companions, setCompanions] = useState<ICompanion[]>([]);
   const [actualFields, setActualFields] = useState<string>('visitanteMembro');
 
   const selectOptions = [
@@ -61,8 +65,29 @@ export function CreateCardForm() {
       },
     ],
   };
+
   function handleFormSubmit(e: FormEvent<HTMLFormElement>) {}
 
+  const addNewCompanion = () => {
+    setCompanions([...companions, { name: '', obs: '' }]);
+  };
+  const removeCompanion = (index: number) => {
+    setCompanions(companions.filter((item, i) => i !== index));
+  };
+  const handleCompanionChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const { name, value } = event.target;
+    setCompanions((prevCompanions) => {
+      const updatedCompanions = [...prevCompanions];
+      updatedCompanions[index] = {
+        ...updatedCompanions[index],
+        [name]: value,
+      };
+      return updatedCompanions;
+    });
+  };
   return (
     <form
       className="w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -78,43 +103,46 @@ export function CreateCardForm() {
         />
       </label>
       <DynamicFieldsBuilder actualFields={actualFields} fieldList={fieldList} />
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded mr-2"
-        type="button"
-        onClick={() => {
-          setCompanionNumber(companionNumber + 1);
-        }}
-      >
-        Adicionar Acopanhante
-      </button>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        type="button"
-        onClick={() => {
-          setCompanionNumber(companionNumber - 1);
-        }}
-      >
-        Remover Acopanhante
-      </button>
-      {[...Array(companionNumber)].map((e: undefined, i: number) => (
+      <div className="flex gap-2">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded "
+          type="button"
+          onClick={addNewCompanion}
+        >
+          Adicionar Acopanhante
+        </button>
+      </div>
+      {companions.map((e, i) => (
         <div key={i} className="border-b-2 border-gray-400 pb-2">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Nome do Acompanhante:
             <input
+              onChange={(event) => handleCompanionChange(event, i)}
+              value={e.name}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
-              name="acompanhante"
+              name="name"
               type="text"
             />
           </label>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Parentesco
             <input
-              key={i}
+              onChange={(event) => handleCompanionChange(event, i)}
+              value={e.obs}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
-              name="acompanhante"
+              name="obs"
               type="text"
             />
           </label>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded"
+            type="button"
+            onClick={() => {
+              removeCompanion(i);
+            }}
+          >
+            Remover Acopanhante
+          </button>
         </div>
       ))}
     </form>

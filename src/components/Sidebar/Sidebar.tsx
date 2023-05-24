@@ -7,7 +7,7 @@ export function Sidebar() {
   return isTabletOrMobile ? (
     <></>
   ) : (
-    <aside className="flex pr-2 gap-3 justify-start flex-col p-3 top-14  basis-1/6 h-[calc(100vh-56px)] bg-slate-200">
+    <aside className="flex  gap-3 justify-start flex-col p-3 top-14  basis-1/6 h-[calc(100vh-72px)] bg-white m-2 rounded-lg">
       <SidebarItem>Criar Evento Culto</SidebarItem>
       <SidebarItem>Tipo Culto-data culto</SidebarItem>
       <SidebarItem>Tipo Culto-data culto</SidebarItem>

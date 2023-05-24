@@ -6,11 +6,11 @@ import {
   CreateEventoForm,
 } from 'components';
 
-export function CreationPage() {
+export function AdminPage() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row bg-gray-200 ">
         <Sidebar />
         <MainContent>
           <CreateCardForm />

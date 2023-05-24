@@ -4,8 +4,8 @@ type Props = {
   fill?: string;
 };
 export function HamburgerIcon({
-  width = 40,
-  height = 40,
+  width = 30,
+  height = 30,
   fill = '#333333',
 }: Props) {
   return (

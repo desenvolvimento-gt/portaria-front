@@ -50,6 +50,22 @@ export function CardColumn({ children, title }: ICardColumn) {
       bodyText: `Descrição3: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem
           praesentium nihil.`,
+      presented: false,
+      type: 'tipo2',
+    },
+    {
+      title: `teste2`,
+      bodyText: `Descrição2: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem
+          praesentium nihil.`,
+      presented: false,
+      type: 'tipo1',
+    },
+    {
+      title: `teste3`,
+      bodyText: `Descrição3: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem
+          praesentium nihil.`,
       presented: true,
       type: 'tipo2',
     },
@@ -74,17 +90,16 @@ export function CardColumn({ children, title }: ICardColumn) {
     setPresentedState(!presentedState);
   }
   return (
-    <div className="flex-row w-full">
+    <div className="flex-row w-full rounded-lg ">
       <h3 className="text-xl rounded px-2 self-center font-bold text-center">
         {title}
       </h3>
-      <div className="px-4 py-2 bg-gray-800">
+      <div className="px-4 py-2 bg-gray-200 rounded-lg ">
         <Toggle
           title="Mostrar já Apresentados"
           onclick={toggleColumnPresentedState}
         />
-
-        <div className="flex pt-2 flex-col gap-2 items-center md:h-[calc(100vh-146px)] sm:h-[calc(100vh-156px)]  h-[calc(100vh-205px)] rounded bg-gray-50 dark:bg-gray-800 overflow-y-scroll ">
+        <div className="flex pt-2 flex-col gap-2 items-center md:h-[calc(100vh-146px)] sm:h-[calc(100vh-156px)]  h-[calc(100vh-205px)] rounded-lg bg-white scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-400  overflow-y-scroll ">
           {presentedState
             ? cards.map((card, i) => {
                 if (card.presented === true) {

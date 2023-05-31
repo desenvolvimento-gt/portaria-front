@@ -13,7 +13,7 @@ export function Card({ title, bodyText, type, presented }: ICard) {
     setShowDetails(!showDetails);
   }
   return (
-    <div className="max-w-[470px] w-[97%] rounded shadow-lg bg-white border border-gray-200 ">
+    <div className="max-w-[650px] w-[97%] rounded shadow-lg bg-white border border-gray-200 ">
       <div className="px-2" onClick={handleOnClick}>
         <div className="flex gap-1 mt-1 w-full">
           <Pill type={type}>Teste</Pill>

@@ -1,3 +1,3 @@
-export * from './CreateVisitanteForm';
-export * from './CreateEventoForm';
+export * from './CreateAnnouncementForm';
+export * from './CreateEventForm';
 export * from './DynamicFieldsBuilder';

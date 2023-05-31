@@ -1,2 +1,2 @@
 export * from './DashboardPage';
-export * from './CreationPage';
+export * from './AdminPage';

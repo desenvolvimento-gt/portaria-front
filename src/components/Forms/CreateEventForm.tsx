@@ -35,7 +35,7 @@ export function CreateEventoForm() {
 
   return (
     <form
-      className="w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      className="w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       onSubmit={handleFormSubmit}
     >
       <label className="block text-gray-700 text-sm font-bold mb-2">

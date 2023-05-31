@@ -94,7 +94,7 @@ export function CardColumn({ children, title }: ICardColumn) {
       <h3 className="text-xl rounded px-2 self-center font-bold text-center">
         {title}
       </h3>
-      <div className="px-4 py-2 bg-gray-200 rounded-lg ">
+      <div className=" bg-gray-200 rounded-lg ">
         <Toggle
           title="Mostrar já Apresentados"
           onclick={toggleColumnPresentedState}

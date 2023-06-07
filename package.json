@@ -1,5 +1,5 @@
 {
-  "name": "thm-sms",
+  "name": "thm-servico",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,12 +10,17 @@
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "antd": "^5.2.2",
+    "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.5",
     "react-icons": "^4.7.1",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.0",
+    "tw-elements": "^1.0.0-beta2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -43,5 +48,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "tailwind-scrollbar": "^3.0.4",
+    "tailwindcss": "^3.2.7"
+  }
 }

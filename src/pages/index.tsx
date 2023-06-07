@@ -1,2 +1,1 @@
-export * from './DashboardPage';
-export * from './AdminPage';
+export * from './LoginPage';

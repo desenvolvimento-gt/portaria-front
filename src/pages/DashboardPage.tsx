@@ -1,6 +1,4 @@
-import { Sidebar, Card, Navbar, CardColumn, MainContent } from 'components';
-import { useEffect } from 'react';
-
+import { Navbar, CardColumn, MainContent } from 'components';
 export function DashboardPage() {
   return (
     <>

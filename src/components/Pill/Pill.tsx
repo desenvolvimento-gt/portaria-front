@@ -16,6 +16,6 @@ export function Pill({ children, type }: IPill) {
         );
         break;
     }
-  });
+  }, []);
   return <span className={style}>{children}</span>;
 }
